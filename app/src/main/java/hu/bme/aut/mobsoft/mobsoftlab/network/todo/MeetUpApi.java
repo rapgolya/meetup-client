@@ -25,13 +25,13 @@ public interface MeetUpApi {
     @Body Event data
   );
 
-  @POST("Login")
+  @POST("login")
   Call<Void> login(
           @Header("userName") String userName,
           @Header("passWord") String password
   );
 
-  @GET("Categories")
+  @GET("categories")
   Call <List<Category>> getCategories();
 
   

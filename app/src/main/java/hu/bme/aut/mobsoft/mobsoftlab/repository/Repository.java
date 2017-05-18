@@ -4,6 +4,7 @@ import android.content.Context;
 
 import java.util.List;
 
+import hu.bme.aut.mobsoft.mobsoftlab.model.Category;
 import hu.bme.aut.mobsoft.mobsoftlab.model.Event;
 import hu.bme.aut.mobsoft.mobsoftlab.model.Todo;
 
@@ -22,4 +23,6 @@ public interface Repository {
     void removeFavourite(Event event);
 
     boolean isInDB(Event event);
+
+    List<Category> getCategories();
 }

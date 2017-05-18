@@ -8,6 +8,7 @@ import com.orm.SugarRecord;
 import java.util.ArrayList;
 import java.util.List;
 
+import hu.bme.aut.mobsoft.mobsoftlab.model.Category;
 import hu.bme.aut.mobsoft.mobsoftlab.model.Event;
 import hu.bme.aut.mobsoft.mobsoftlab.model.Todo;
 
@@ -55,6 +56,10 @@ public class SugarOrmRepository implements Repository {
     @Override
     public boolean isInDB(Event event) {
         return SugarRecord.findById(Todo.class, event.getId()) != null;
+    }
+
+    public List<Category> getCategories() {
+        return SugarRecord.listAll(Category.class);
     }
 
 }

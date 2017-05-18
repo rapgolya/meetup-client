@@ -36,6 +36,11 @@ public class TodoMock {
 		} else if (uri.getPath().equals(NetworkConfig.ENDPOINT_PREFIX + "login") && request.method().equals("POST")) {
 			responseString="";
 			responseCode = 200;
+		} else if (uri.getPath().equals(NetworkConfig.ENDPOINT_PREFIX + "categories") && request.method().equals("GET")) {
+			MemoryRepository memoryRepository = new MemoryRepository();
+			memoryRepository.open(null);
+			responseString = GsonHelper.getGson().toJson(memoryRepository.getCategories());
+			responseCode = 200;
 		} else{
 			responseString = "ERROR";
 			responseCode = 503;

@@ -7,7 +7,9 @@ import java.util.concurrent.Executor;
 import javax.inject.Inject;
 
 import de.greenrobot.event.EventBus;
+import hu.bme.aut.mobsoft.mobsoftlab.interactor.todo.CategoriesInteractor;
 import hu.bme.aut.mobsoft.mobsoftlab.interactor.todo.FavouritesInteractor;
+import hu.bme.aut.mobsoft.mobsoftlab.interactor.todo.events.GetCategoriesEvent;
 import hu.bme.aut.mobsoft.mobsoftlab.interactor.todo.events.GetFavouritesEvent;
 import hu.bme.aut.mobsoft.mobsoftlab.model.Event;
 import hu.bme.aut.mobsoft.mobsoftlab.ui.Presenter;
@@ -20,7 +22,7 @@ import static hu.bme.aut.mobsoft.mobsoftlab.MobSoftApplication.injector;
 
 public class CategoriesPresenter extends Presenter<CategoriesScreen> {
     @Inject
-    FavouritesInteractor favouritesInteractor;
+    CategoriesInteractor categoriesInteractor;
 
     @Inject
     Executor executor;
@@ -42,17 +44,16 @@ public class CategoriesPresenter extends Presenter<CategoriesScreen> {
         super.detachScreen();
     }
 
-    public void getFavourites() {
+    public void getCategories() {
         executor.execute(new Runnable() {
             @Override
             public void run() {
-                favouritesInteractor.getFavourites();
+                categoriesInteractor.getCategories();
             }
         });
     }
 
-
-    public void onEventMainThread(GetFavouritesEvent e) {
+    public void onEventMainThread(GetCategoriesEvent e) {
         Log.d("test","test");
         if (e.getThrowable() != null) {
             e.getThrowable().printStackTrace();
@@ -61,6 +62,7 @@ public class CategoriesPresenter extends Presenter<CategoriesScreen> {
             Log.e("Networking", "Error reading favourites", e.getThrowable());
         } else {
             if (screen != null) {
+                screen.onCategoriesChange(e.getCategories());
             }
         }
     }

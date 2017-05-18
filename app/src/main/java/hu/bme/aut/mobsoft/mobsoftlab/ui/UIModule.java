@@ -11,6 +11,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import de.greenrobot.event.EventBus;
+import hu.bme.aut.mobsoft.mobsoftlab.ui.categories.CategoriesPresenter;
 import hu.bme.aut.mobsoft.mobsoftlab.ui.main.MainPresenter;
 
 @Module
@@ -30,6 +31,12 @@ public class UIModule {
     @Singleton
     public MainPresenter provideMainPresenter() {
         return new MainPresenter();
+    }
+
+    @Provides
+    @Singleton
+    public CategoriesPresenter provideCategoriesPresenter() {
+        return new CategoriesPresenter();
     }
 
 

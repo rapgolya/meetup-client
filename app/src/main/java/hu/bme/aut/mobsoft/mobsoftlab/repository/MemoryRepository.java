@@ -26,6 +26,11 @@ public class MemoryRepository implements Repository {
 		events.add(new Event(2L, 20, "Lorem ipsum", "4:30", "BME", "free", "Test Event", "12:00", "", 200 ));
 		events.add(new Event(3L, 20, "Lorem ipsum", "4:30", "BME", "free", "Test Event", "12:00", "", 200 ));
 		events.add(new Event(4L, 20, "Lorem ipsum", "4:30", "BME", "free", "Test Event", "12:00", "", 200 ));
+		categories = new ArrayList<>();
+		categories.add(new Category(1L, "Informatika", "IT"));
+		categories.add(new Category(1L, "Gasztronómia", "IT"));
+		categories.add(new Category(1L, "Tánc", "IT"));
+		categories.add(new Category(1L, "Kutya", "IT"));
 	}
 
 	@Override
@@ -33,6 +38,10 @@ public class MemoryRepository implements Repository {
 
 	}
 
+	@Override
+	public List<Category> getCategories(){
+		return this.categories;
+	}
 	@Override
 	public List<Event> getFavourites() {
 		return events;
