@@ -13,6 +13,10 @@ import hu.bme.aut.mobsoft.mobsoftlab.repository.RepositoryModule;
 import hu.bme.aut.mobsoft.mobsoftlab.ui.UIModule;
 import hu.bme.aut.mobsoft.mobsoftlab.ui.categories.CategoriesActivity;
 import hu.bme.aut.mobsoft.mobsoftlab.ui.categories.CategoriesPresenter;
+import hu.bme.aut.mobsoft.mobsoftlab.ui.events.EventDetailsActivity;
+import hu.bme.aut.mobsoft.mobsoftlab.ui.events.EventDetailsPresenter;
+import hu.bme.aut.mobsoft.mobsoftlab.ui.events.EventsListActivity;
+import hu.bme.aut.mobsoft.mobsoftlab.ui.events.EventsListPresenter;
 import hu.bme.aut.mobsoft.mobsoftlab.ui.main.MainActivity;
 import hu.bme.aut.mobsoft.mobsoftlab.ui.main.MainPresenter;
 
@@ -22,6 +26,8 @@ public interface MobSoftApplicationComponent {
     void inject(MainActivity mainActivity);
 
     void inject(CategoriesActivity activity);
+    void inject(EventsListActivity activity);
+    void inject(EventDetailsActivity activity);
 
     void inject(FavouritesInteractor favouritesInteractor);
 
@@ -34,4 +40,6 @@ public interface MobSoftApplicationComponent {
     void inject(MainPresenter mainPresenter);
 
     void inject(CategoriesPresenter presenter);
+    void inject(EventsListPresenter presenter);
+    void inject(EventDetailsPresenter presenter);
 }

@@ -3,6 +3,7 @@
     package="hu.bme.aut.mobsoft.mobsoftlab">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:name=".MobSoftApplication"
@@ -35,11 +36,11 @@
 
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="b7d4222b20e5a7fcce05dbd24b9267f14274d78e" />
+            android:value="8349f9c4aac0f6eaa763eb8393b8660fb94e41be" />
 
-        <activity
-            android:name=".ui.categories.CategoriesActivity">
-        </activity>
+        <activity android:name=".ui.categories.CategoriesActivity"></activity>
+        <activity android:name=".ui.events.EventsListActivity"></activity>
+        <activity android:name=".ui.events.EventDetailsActivity"></activity>
     </application>
 
 </manifest>
