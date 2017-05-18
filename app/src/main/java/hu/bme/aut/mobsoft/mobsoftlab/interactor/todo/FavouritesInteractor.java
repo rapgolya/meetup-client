@@ -35,7 +35,7 @@ public class FavouritesInteractor {
         GetFavouritesEvent event = new GetFavouritesEvent();
         try {
             List<Event> events = repository.getFavourites();
-            event.setTodos(events);
+            event.setEvents(events);
             bus.post(event);
         } catch (Exception e) {
             event.setThrowable(e);

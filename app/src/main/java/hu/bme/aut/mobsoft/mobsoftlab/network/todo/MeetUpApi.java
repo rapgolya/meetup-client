@@ -1,5 +1,8 @@
 package hu.bme.aut.mobsoft.mobsoftlab.network.todo;
 
+import java.util.List;
+
+import hu.bme.aut.mobsoft.mobsoftlab.model.Category;
 import hu.bme.aut.mobsoft.mobsoftlab.model.Event;
 import hu.bme.aut.mobsoft.mobsoftlab.model.Todo;
 
@@ -21,6 +24,15 @@ public interface MeetUpApi {
   Call<Void> saveFavourite(
     @Body Event data
   );
+
+  @POST("Login")
+  Call<Void> login(
+          @Header("userName") String userName,
+          @Header("passWord") String password
+  );
+
+  @GET("Categories")
+  Call <List<Category>> getCategories();
 
   
 }

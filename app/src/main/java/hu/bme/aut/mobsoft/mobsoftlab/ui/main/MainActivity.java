@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.analytics.HitBuilders;
@@ -31,11 +32,13 @@ public class MainActivity extends AppCompatActivity implements MainScreen {
         MobSoftApplication.injector.inject(this);
 
         Button btn = (Button) findViewById(R.id.loginBtn);
+        final EditText email = (EditText) findViewById(R.id.emailInput);
+        final EditText password = (EditText) findViewById(R.id.emailInput);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mainPresenter.getFavourites();
+                mainPresenter.login(email.getText().toString(), password.getText().toString());
             }
         });
 
@@ -67,6 +70,10 @@ public class MainActivity extends AppCompatActivity implements MainScreen {
     public void showMessage(String text) {
 
         Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void login(){
         Intent intent = new Intent(this, CategoriesActivity.class);
         startActivity(intent);
     }

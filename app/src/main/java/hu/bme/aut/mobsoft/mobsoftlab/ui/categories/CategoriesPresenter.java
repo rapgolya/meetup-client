@@ -1,4 +1,4 @@
-package hu.bme.aut.mobsoft.mobsoftlab.ui.main;
+package hu.bme.aut.mobsoft.mobsoftlab.ui.categories;
 
 import android.util.Log;
 
@@ -8,19 +8,19 @@ import javax.inject.Inject;
 
 import de.greenrobot.event.EventBus;
 import hu.bme.aut.mobsoft.mobsoftlab.interactor.todo.FavouritesInteractor;
-import hu.bme.aut.mobsoft.mobsoftlab.interactor.todo.LoginInteractor;
 import hu.bme.aut.mobsoft.mobsoftlab.interactor.todo.events.GetFavouritesEvent;
-import hu.bme.aut.mobsoft.mobsoftlab.interactor.todo.events.LoginEvent;
 import hu.bme.aut.mobsoft.mobsoftlab.model.Event;
 import hu.bme.aut.mobsoft.mobsoftlab.ui.Presenter;
 
 import static hu.bme.aut.mobsoft.mobsoftlab.MobSoftApplication.injector;
 
+/**
+ * Created by rapgo on 2017. 05. 18..
+ */
 
-public class MainPresenter extends Presenter<MainScreen> {
-
+public class CategoriesPresenter extends Presenter<CategoriesScreen> {
     @Inject
-    LoginInteractor loginInteractor;
+    FavouritesInteractor favouritesInteractor;
 
     @Inject
     Executor executor;
@@ -30,7 +30,7 @@ public class MainPresenter extends Presenter<MainScreen> {
 
 
     @Override
-    public void attachScreen(MainScreen screen) {
+    public void attachScreen(CategoriesScreen screen) {
         super.attachScreen(screen);
         injector.inject(this);
         bus.register(this);
@@ -38,33 +38,30 @@ public class MainPresenter extends Presenter<MainScreen> {
 
     @Override
     public void detachScreen(){
-		bus.unregister(this);
+        bus.unregister(this);
         super.detachScreen();
     }
 
-    public void login(final String email, final String password) {
+    public void getFavourites() {
         executor.execute(new Runnable() {
             @Override
             public void run() {
-                loginInteractor.login(email, password);
+                favouritesInteractor.getFavourites();
             }
         });
     }
 
 
-    public void onEventMainThread(LoginEvent e) {
+    public void onEventMainThread(GetFavouritesEvent e) {
         Log.d("test","test");
         if (e.getThrowable() != null) {
             e.getThrowable().printStackTrace();
             if (screen != null) {
-                screen.showMessage("error");
             }
             Log.e("Networking", "Error reading favourites", e.getThrowable());
         } else {
             if (screen != null) {
-                screen.login();
             }
         }
     }
-
 }

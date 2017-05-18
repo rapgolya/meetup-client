@@ -6,4 +6,5 @@ package hu.bme.aut.mobsoft.mobsoftlab.ui.main;
 
 public interface MainScreen {
     void showMessage(String text);
+    void login();
 }

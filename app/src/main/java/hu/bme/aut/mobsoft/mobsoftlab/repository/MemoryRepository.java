@@ -21,7 +21,11 @@ public class MemoryRepository implements Repository {
 
 	@Override
 	public void open(Context context) {
-
+		events = new ArrayList<>();
+		events.add(new Event(1L, 20, "Lorem ipsum", "4:30", "BME", "free", "Test Event", "12:00", "", 200 ));
+		events.add(new Event(2L, 20, "Lorem ipsum", "4:30", "BME", "free", "Test Event", "12:00", "", 200 ));
+		events.add(new Event(3L, 20, "Lorem ipsum", "4:30", "BME", "free", "Test Event", "12:00", "", 200 ));
+		events.add(new Event(4L, 20, "Lorem ipsum", "4:30", "BME", "free", "Test Event", "12:00", "", 200 ));
 	}
 
 	@Override
