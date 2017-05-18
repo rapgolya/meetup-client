@@ -25,4 +25,6 @@ public interface Repository {
     boolean isInDB(Event event);
 
     List<Category> getCategories();
+    Event getEventById(Long eventId);
+    List<Event> getEventsByCategoryId(Long categoryId);
 }

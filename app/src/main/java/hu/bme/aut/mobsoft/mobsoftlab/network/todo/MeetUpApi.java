@@ -32,7 +32,12 @@ public interface MeetUpApi {
   );
 
   @GET("categories")
-  Call <List<Category>> getCategories();
+  Call<List<Category>> getCategories();
 
-  
+  @GET("events")
+  Call<List<Event>> getEventsByCategory(@Query("categoryId") Long categoryId);
+
+  @GET("event")
+  Call<Event> getEventById(@Query("eventId") Long eventId);
+
 }

@@ -41,7 +41,22 @@ public class TodoMock {
 			memoryRepository.open(null);
 			responseString = GsonHelper.getGson().toJson(memoryRepository.getCategories());
 			responseCode = 200;
-		} else{
+		} else if (uri.getPath().startsWith(NetworkConfig.ENDPOINT_PREFIX + "event") && request.method().equals("GET")) {
+			MemoryRepository memoryRepository = new MemoryRepository();
+			memoryRepository.open(null);
+			if (uri.getQueryParameter("categoryId") != null) {
+				String categoryId = uri.getQueryParameter("categoryId");
+				responseString = GsonHelper.getGson().toJson(memoryRepository.getEventsByCategoryId(Long.parseLong(categoryId)));
+			} else if (uri.getQueryParameter("eventId") != null){
+				String eventId = uri.getQueryParameter("eventId");
+				responseString = GsonHelper.getGson().toJson(memoryRepository.getEventById(Long.parseLong(eventId)));
+			}
+			else {
+				responseString = "";
+			}
+
+			responseCode = 200;
+		}else{
 			responseString = "ERROR";
 			responseCode = 503;
 		}

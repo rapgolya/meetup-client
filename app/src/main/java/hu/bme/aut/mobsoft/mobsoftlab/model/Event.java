@@ -6,6 +6,7 @@ package hu.bme.aut.mobsoft.mobsoftlab.model;
 
 public class Event {
     private Long id = null;
+    private Long categoryId;
     private int commentCount;
     private String description;
     private String duration;
@@ -14,6 +15,7 @@ public class Event {
     private String name;
     private String time;
     private String venue;
+    private int yesRsvpCount;
 
     public Long getId() {
         return id;
@@ -95,12 +97,19 @@ public class Event {
         this.yesRsvpCount = yesRsvpCount;
     }
 
-    private int yesRsvpCount;
+    public Long getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
+    }
 
     public  Event(){}
 
-    public Event(Long id, int commentCount, String description, String duration, String eventHosts, String fee, String name, String time, String venue, int yesRsvpCount) {
+    public Event(Long id, Long categoryId, int commentCount, String description, String duration, String eventHosts, String fee, String name, String time, String venue, int yesRsvpCount) {
         this.id = id;
+        this.categoryId = categoryId;
         this.commentCount = commentCount;
         this.description = description;
         this.duration = duration;

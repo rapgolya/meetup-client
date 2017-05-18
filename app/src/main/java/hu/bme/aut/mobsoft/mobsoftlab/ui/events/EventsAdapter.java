@@ -1,12 +1,9 @@
-package hu.bme.aut.mobsoft.mobsoftlab.ui.categories;
+package hu.bme.aut.mobsoft.mobsoftlab.ui.events;
 
 import android.content.Context;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
@@ -14,18 +11,19 @@ import java.util.List;
 
 import hu.bme.aut.mobsoft.mobsoftlab.R;
 import hu.bme.aut.mobsoft.mobsoftlab.model.Category;
+import hu.bme.aut.mobsoft.mobsoftlab.model.Event;
 
 /**
  * Created by rapgo on 2017. 05. 18..
  */
 
-public class CategoryAdapter extends ArrayAdapter<Category> {
+public class EventsAdapter extends ArrayAdapter<Event> {
 
-    public CategoryAdapter(Context context, int textViewResourceId) {
+    public EventsAdapter(Context context, int textViewResourceId) {
         super(context, textViewResourceId);
     }
 
-    public CategoryAdapter(Context context, int resource, List<Category> items) {
+    public EventsAdapter(Context context, int resource, List<Event> items) {
         super(context, resource, items);
     }
 
@@ -35,11 +33,11 @@ public class CategoryAdapter extends ArrayAdapter<Category> {
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         View listItem = inflater.inflate(R.layout.category_list_item, parent, false);
-        Category category = getItem(position);
+        Event event = getItem(position);
 
         TextView historyItemNameAndAmount = (TextView) listItem.findViewById(R.id.categoryName);
 
-        historyItemNameAndAmount.setText(category.getName());
+        historyItemNameAndAmount.setText(event.getName());
 
         return listItem;
     }

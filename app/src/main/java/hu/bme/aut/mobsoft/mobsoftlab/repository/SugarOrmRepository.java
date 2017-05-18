@@ -62,4 +62,14 @@ public class SugarOrmRepository implements Repository {
         return SugarRecord.listAll(Category.class);
     }
 
+    @Override
+    public Event getEventById(Long eventId) {
+        return null;
+    }
+
+    @Override
+    public List<Event> getEventsByCategoryId(Long categoryId) {
+        return null;
+    }
+
 }

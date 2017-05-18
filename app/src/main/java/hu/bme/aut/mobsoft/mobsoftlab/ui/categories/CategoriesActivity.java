@@ -1,11 +1,13 @@
 package hu.bme.aut.mobsoft.mobsoftlab.ui.categories;
 
+import android.content.Intent;
 import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -20,6 +22,7 @@ import javax.inject.Inject;
 import hu.bme.aut.mobsoft.mobsoftlab.MobSoftApplication;
 import hu.bme.aut.mobsoft.mobsoftlab.R;
 import hu.bme.aut.mobsoft.mobsoftlab.model.Category;
+import hu.bme.aut.mobsoft.mobsoftlab.ui.events.EventsListActivity;
 import hu.bme.aut.mobsoft.mobsoftlab.ui.main.MainPresenter;
 
 
@@ -40,7 +43,15 @@ public class CategoriesActivity extends AppCompatActivity implements CategoriesS
         MobSoftApplication.injector.inject(this);
 
         categoryListView = (ListView) findViewById(R.id.categoryList);
-
+        final CategoriesActivity that = this;
+        categoryListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(that, EventsListActivity.class);
+                intent.putExtra("categoryId", ((Category)parent.getItemAtPosition(position)).getId());
+                startActivity(intent);
+            }
+        });
         // Obtain the shared Tracker instance.
         //MobSoftApplication application = (MobSoftApplication) getApplication();
         //mTracker = application.getDefaultTracker();

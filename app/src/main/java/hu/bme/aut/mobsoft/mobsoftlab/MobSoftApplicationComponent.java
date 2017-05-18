@@ -5,6 +5,7 @@ import javax.inject.Singleton;
 import dagger.Component;
 import hu.bme.aut.mobsoft.mobsoftlab.interactor.InteractorModule;
 import hu.bme.aut.mobsoft.mobsoftlab.interactor.todo.CategoriesInteractor;
+import hu.bme.aut.mobsoft.mobsoftlab.interactor.todo.EventsInteractor;
 import hu.bme.aut.mobsoft.mobsoftlab.interactor.todo.FavouritesInteractor;
 import hu.bme.aut.mobsoft.mobsoftlab.interactor.todo.LoginInteractor;
 import hu.bme.aut.mobsoft.mobsoftlab.mock.MockNetworkModule;
@@ -30,6 +31,8 @@ public interface MobSoftApplicationComponent {
     void inject(EventDetailsActivity activity);
 
     void inject(FavouritesInteractor favouritesInteractor);
+
+    void inject(EventsInteractor interactor);
 
     void inject(LoginInteractor interactor);
 
