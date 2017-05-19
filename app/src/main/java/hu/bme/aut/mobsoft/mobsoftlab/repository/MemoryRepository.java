@@ -21,19 +21,23 @@ public class MemoryRepository implements Repository {
 
 	@Override
 	public void open(Context context) {
-		events = new ArrayList<>();
-		events.add(new Event(1L, 1L, 20, "Lorem ipsum", "4:30", "BME", "free", "Test Event", "12:00", "Budapest Park", 200 ));
-		events.add(new Event(2L, 2L, 20, "Lorem ipsum", "4:30", "BME", "free", "Test Event", "12:00", "Budapest Park", 200 ));
-		events.add(new Event(3L, 2L, 20, "Lorem ipsum", "4:30", "BME", "free", "Test Event", "12:00", "Budapest Park", 200 ));
-		events.add(new Event(4L, 2L, 20, "Lorem ipsum", "4:30", "BME", "free", "Test Event", "12:00", "Budapest Park", 200 ));
-		events.add(new Event(5L, 3L, 20, "Lorem ipsum", "4:30", "BME", "free", "Test Event", "12:00", "Budapest Park", 200 ));
-		events.add(new Event(6L, 4L, 20, "Lorem ipsum", "4:30", "BME", "free", "Test Event", "12:00", "Budapest Park", 200 ));
-		events.add(new Event(7L, 1L, 20, "Lorem ipsum", "4:30", "BME", "free", "Test Event", "12:00", "Budapest Park", 200 ));
-		categories = new ArrayList<>();
-		categories.add(new Category(1L, "Informatika", "IT"));
-		categories.add(new Category(2L, "Gasztronómia", "IT"));
-		categories.add(new Category(3L, "Tánc", "IT"));
-		categories.add(new Category(4L, "Kutya", "IT"));
+		if (events == null) {
+			events = new ArrayList<>();
+			events.add(new Event(1L, 1L, 20, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus massa nisi, auctor nec libero vitae, suscipit gravida erat. Morbi vitae enim eu quam imperdiet interdum. Vivamus dictum, est non vehicula varius, eros enim facilisis sapien, lobortis efficitur libero libero a metus. Donec ullamcorper mi bibendum, sagittis velit a, vulputate metus. Vestibulum et euismod augue, ac eleifend augue. Sed sodales enim sit amet nibh interdum tincidunt. Sed id elementum enim. Praesent et massa vitae mauris fringilla volutpat quis facilisis dui. Sed consequat tortor dui, sed tempor tortor efficitur in. Aenean vitae egestas leo. Duis lacus mi, dapibus nec varius eget, ultricies id lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus.", "20.05.2017 4:30 PM", "BME", "free", "Test Event", "20.05.2017 4:30 PM", "Budapest Park", 200));
+			events.add(new Event(2L, 2L, 20, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus massa nisi, auctor nec libero vitae, suscipit gravida erat. Morbi vitae enim eu quam imperdiet interdum. Vivamus dictum, est non vehicula varius, eros enim facilisis sapien, lobortis efficitur libero libero a metus. Donec ullamcorper mi bibendum, sagittis velit a, vulputate metus. Vestibulum et euismod augue, ac eleifend augue. Sed sodales enim sit amet nibh interdum tincidunt. Sed id elementum enim. Praesent et massa vitae mauris fringilla volutpat quis facilisis dui. Sed consequat tortor dui, sed tempor tortor efficitur in. Aenean vitae egestas leo. Duis lacus mi, dapibus nec varius eget, ultricies id lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus.", "20.05.2017 4:30 PM", "BME", "free", "Test Event", "20.05.2017 4:30 PM", "Budapest Park", 200));
+			events.add(new Event(3L, 2L, 20, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus massa nisi, auctor nec libero vitae, suscipit gravida erat. Morbi vitae enim eu quam imperdiet interdum. Vivamus dictum, est non vehicula varius, eros enim facilisis sapien, lobortis efficitur libero libero a metus. Donec ullamcorper mi bibendum, sagittis velit a, vulputate metus. Vestibulum et euismod augue, ac eleifend augue. Sed sodales enim sit amet nibh interdum tincidunt. Sed id elementum enim. Praesent et massa vitae mauris fringilla volutpat quis facilisis dui. Sed consequat tortor dui, sed tempor tortor efficitur in. Aenean vitae egestas leo. Duis lacus mi, dapibus nec varius eget, ultricies id lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus.", "20.05.2017 4:30 PM", "BME", "free", "Test Event", "20.05.2017 4:30 PM", "Budapest Park", 200));
+			events.add(new Event(4L, 2L, 20, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus massa nisi, auctor nec libero vitae, suscipit gravida erat. Morbi vitae enim eu quam imperdiet interdum. Vivamus dictum, est non vehicula varius, eros enim facilisis sapien, lobortis efficitur libero libero a metus. Donec ullamcorper mi bibendum, sagittis velit a, vulputate metus. Vestibulum et euismod augue, ac eleifend augue. Sed sodales enim sit amet nibh interdum tincidunt. Sed id elementum enim. Praesent et massa vitae mauris fringilla volutpat quis facilisis dui. Sed consequat tortor dui, sed tempor tortor efficitur in. Aenean vitae egestas leo. Duis lacus mi, dapibus nec varius eget, ultricies id lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus.", "20.05.2017 4:30 PM", "BME", "free", "Test Event", "20.05.2017 4:30 PM", "Budapest Park", 200));
+			events.add(new Event(5L, 3L, 20, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus massa nisi, auctor nec libero vitae, suscipit gravida erat. Morbi vitae enim eu quam imperdiet interdum. Vivamus dictum, est non vehicula varius, eros enim facilisis sapien, lobortis efficitur libero libero a metus. Donec ullamcorper mi bibendum, sagittis velit a, vulputate metus. Vestibulum et euismod augue, ac eleifend augue. Sed sodales enim sit amet nibh interdum tincidunt. Sed id elementum enim. Praesent et massa vitae mauris fringilla volutpat quis facilisis dui. Sed consequat tortor dui, sed tempor tortor efficitur in. Aenean vitae egestas leo. Duis lacus mi, dapibus nec varius eget, ultricies id lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus.", "20.05.2017 4:30 PM", "BME", "free", "Test Event", "20.05.2017 4:30 PM", "Budapest Park", 200));
+			events.add(new Event(6L, 4L, 20, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus massa nisi, auctor nec libero vitae, suscipit gravida erat. Morbi vitae enim eu quam imperdiet interdum. Vivamus dictum, est non vehicula varius, eros enim facilisis sapien, lobortis efficitur libero libero a metus. Donec ullamcorper mi bibendum, sagittis velit a, vulputate metus. Vestibulum et euismod augue, ac eleifend augue. Sed sodales enim sit amet nibh interdum tincidunt. Sed id elementum enim. Praesent et massa vitae mauris fringilla volutpat quis facilisis dui. Sed consequat tortor dui, sed tempor tortor efficitur in. Aenean vitae egestas leo. Duis lacus mi, dapibus nec varius eget, ultricies id lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus.", "20.05.2017 4:30 PM", "BME", "free", "Test Event", "20.05.2017 4:30 PM", "Budapest Park", 200));
+			events.add(new Event(7L, 1L, 20, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus massa nisi, auctor nec libero vitae, suscipit gravida erat. Morbi vitae enim eu quam imperdiet interdum. Vivamus dictum, est non vehicula varius, eros enim facilisis sapien, lobortis efficitur libero libero a metus. Donec ullamcorper mi bibendum, sagittis velit a, vulputate metus. Vestibulum et euismod augue, ac eleifend augue. Sed sodales enim sit amet nibh interdum tincidunt. Sed id elementum enim. Praesent et massa vitae mauris fringilla volutpat quis facilisis dui. Sed consequat tortor dui, sed tempor tortor efficitur in. Aenean vitae egestas leo. Duis lacus mi, dapibus nec varius eget, ultricies id lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus.", "20.05.2017 4:30 PM", "BME", "free", "Test Event", "20.05.2017 4:30 PM", "Budapest Park", 200));
+		}
+		if (categories == null){
+			categories = new ArrayList<>();
+			categories.add(new Category(1L, "Informatika", "IT"));
+			categories.add(new Category(2L, "Gasztronómia", "IT"));
+			categories.add(new Category(3L, "Tánc", "IT"));
+			categories.add(new Category(4L, "Kutya", "IT"));
+		}
 	}
 
 	@Override
@@ -67,30 +71,20 @@ public class MemoryRepository implements Repository {
 		return events;
 	}
 
-	@Override
-	public List<Event> getFavourites() {
-		return events;
-	}
+    @Override
+    public Event setAttending(Long eventId, boolean attending) {
+        Event event = getEventById(eventId);
+        event.setYesRsvpCount(event.getYesRsvpCount() + (attending ? +1: -1 ));
+        return event;
+    }
 
-	@Override
-	public void saveFavourite(Event event) {
 
-	}
-
-	@Override
-	public void updateFavourites(List<Event> events) {
-
-	}
-
-	@Override
-	public void removeFavourite(Event event) {
-
-	}
-
-	@Override
+    @Override
 	public boolean isInDB(Event event) {
 		return true;
 	}
+
+
 
 }
 

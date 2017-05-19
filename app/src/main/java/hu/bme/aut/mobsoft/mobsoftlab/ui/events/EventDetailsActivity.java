@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import javax.inject.Inject;
@@ -28,6 +30,9 @@ public class EventDetailsActivity extends AppCompatActivity implements EventDeta
     private TextView eventTitle;
     private TextView eventDate;
     private TextView eventLocation;
+    private TextView descriptionText;
+    private TextView attendsCount;
+    private Switch attendingSwitch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +43,10 @@ public class EventDetailsActivity extends AppCompatActivity implements EventDeta
         eventTitle = (TextView) findViewById(R.id.eventTitle);
         eventDate = (TextView) findViewById(R.id.eventDate);
         eventLocation = (TextView) findViewById(R.id.eventLocation);
+        descriptionText = (TextView) findViewById(R.id.descriptionText);
+        attendsCount = (TextView) findViewById(R.id.attendsCount);
+        attendingSwitch = (Switch) findViewById(R.id.attendingSwitch);
+
         Button navigateButton = (Button) findViewById(R.id.navigateButton);
         final EventDetailsActivity that = this;
         navigateButton.setOnClickListener(new View.OnClickListener() {
@@ -46,6 +55,13 @@ public class EventDetailsActivity extends AppCompatActivity implements EventDeta
                 String map = "http://maps.google.co.in/maps?q=" + that.selectedEvent.getVenue();
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(map));
                 startActivity(intent);
+            }
+        });
+
+        attendingSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                eventDetailsPresenter.setAttending(that.selectedEvent.getId(), isChecked);
             }
         });
     }
@@ -75,5 +91,7 @@ public class EventDetailsActivity extends AppCompatActivity implements EventDeta
         eventTitle.setText(selectedEvent.getName());
         eventDate.setText(selectedEvent.getTime());
         eventLocation.setText(selectedEvent.getVenue());
+        descriptionText.setText(selectedEvent.getDescription());
+        attendsCount.setText("" + selectedEvent.getYesRsvpCount());
     }
 }

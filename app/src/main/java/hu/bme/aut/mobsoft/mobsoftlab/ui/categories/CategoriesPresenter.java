@@ -8,7 +8,6 @@ import javax.inject.Inject;
 
 import de.greenrobot.event.EventBus;
 import hu.bme.aut.mobsoft.mobsoftlab.interactor.todo.CategoriesInteractor;
-import hu.bme.aut.mobsoft.mobsoftlab.interactor.todo.FavouritesInteractor;
 import hu.bme.aut.mobsoft.mobsoftlab.interactor.todo.events.GetCategoriesEvent;
 import hu.bme.aut.mobsoft.mobsoftlab.interactor.todo.events.GetFavouritesEvent;
 import hu.bme.aut.mobsoft.mobsoftlab.model.Event;

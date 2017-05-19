@@ -7,11 +7,8 @@ import java.util.concurrent.Executor;
 import javax.inject.Inject;
 
 import de.greenrobot.event.EventBus;
-import hu.bme.aut.mobsoft.mobsoftlab.interactor.todo.FavouritesInteractor;
 import hu.bme.aut.mobsoft.mobsoftlab.interactor.todo.LoginInteractor;
-import hu.bme.aut.mobsoft.mobsoftlab.interactor.todo.events.GetFavouritesEvent;
 import hu.bme.aut.mobsoft.mobsoftlab.interactor.todo.events.LoginEvent;
-import hu.bme.aut.mobsoft.mobsoftlab.model.Event;
 import hu.bme.aut.mobsoft.mobsoftlab.ui.Presenter;
 
 import static hu.bme.aut.mobsoft.mobsoftlab.MobSoftApplication.injector;

@@ -25,35 +25,6 @@ public class SugarOrmRepository implements Repository {
     }
 
     @Override
-    public List<Event> getFavourites() {
-        return SugarRecord.listAll(Event.class);
-    }
-
-    @Override
-    public void saveFavourite(Event event) {
-        SugarRecord.saveInTx(event);
-    }
-
-    @Override
-    public void updateFavourites(List<Event> events) {
-        List<Event> favourites = getFavourites();
-        List<Event> toUpdate = new ArrayList<>(favourites.size());
-        for (Event favourite : favourites) {
-            for (Event event : events) {
-                if (event.getId().equals(favourite.getId())) {
-                    toUpdate.add(event);
-                }
-            }
-        }
-        SugarRecord.saveInTx(toUpdate);
-    }
-
-    @Override
-    public void removeFavourite(Event event) {
-        SugarRecord.deleteInTx(event);
-    }
-
-    @Override
     public boolean isInDB(Event event) {
         return SugarRecord.findById(Todo.class, event.getId()) != null;
     }
@@ -64,12 +35,20 @@ public class SugarOrmRepository implements Repository {
 
     @Override
     public Event getEventById(Long eventId) {
-        return null;
+        return SugarRecord.findById(Event.class, eventId);
     }
 
     @Override
     public List<Event> getEventsByCategoryId(Long categoryId) {
-        return null;
+        return SugarRecord.findWithQuery(Event.class, "categoryId = ?", categoryId.toString());
+    }
+
+    @Override
+    public Event setAttending(Long eventId, boolean attending) {
+        Event event = getEventById(eventId);
+        event.setYesRsvpCount(event.getYesRsvpCount() + (attending ?  +1 : -1));
+        SugarRecord.save(event);
+        return event;
     }
 
 }

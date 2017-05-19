@@ -14,17 +14,10 @@ public interface Repository {
 
     void close();
 
-    List<Event> getFavourites();
-
-    void saveFavourite(Event event);
-
-    void updateFavourites(List<Event> events);
-
-    void removeFavourite(Event event);
-
     boolean isInDB(Event event);
 
     List<Category> getCategories();
     Event getEventById(Long eventId);
     List<Event> getEventsByCategoryId(Long categoryId);
+    Event setAttending(Long eventId, boolean attending);
 }

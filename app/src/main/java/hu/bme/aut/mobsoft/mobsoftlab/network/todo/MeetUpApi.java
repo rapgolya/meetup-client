@@ -40,4 +40,6 @@ public interface MeetUpApi {
   @GET("event")
   Call<Event> getEventById(@Query("eventId") Long eventId);
 
+  @POST("attending")
+  Call<Event> attending(@Query("eventId") Long eventId, @Query("attending") boolean attending);
 }

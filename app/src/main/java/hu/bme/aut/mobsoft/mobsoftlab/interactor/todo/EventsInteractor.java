@@ -56,4 +56,16 @@ public class EventsInteractor {
             bus.post(event);
         }
     }
+
+    public void setAttending(Long eventId, boolean attending) {
+        GetEventsByIdEvent event = new GetEventsByIdEvent();
+        try {
+            Event eventDto = meetUpApi.attending(eventId, attending).execute().body();
+            event.setEvent(eventDto);
+            bus.post(event);
+        } catch (Exception e) {
+            event.setThrowable(e);
+            bus.post(event);
+        }
+    }
 }

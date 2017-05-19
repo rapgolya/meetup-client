@@ -53,6 +53,15 @@ public class EventDetailsPresenter extends Presenter<EventDetailsScreen> {
         });
     }
 
+    void setAttending(final Long id, final boolean favorite){
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                eventsInteractor.setAttending(id, favorite);
+            }
+        });
+    }
+
     public void onEventMainThread(GetEventsByIdEvent e) {
         Log.d("test","test");
         if (e.getThrowable() != null) {

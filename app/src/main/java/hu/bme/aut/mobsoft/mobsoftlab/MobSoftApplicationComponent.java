@@ -6,7 +6,6 @@ import dagger.Component;
 import hu.bme.aut.mobsoft.mobsoftlab.interactor.InteractorModule;
 import hu.bme.aut.mobsoft.mobsoftlab.interactor.todo.CategoriesInteractor;
 import hu.bme.aut.mobsoft.mobsoftlab.interactor.todo.EventsInteractor;
-import hu.bme.aut.mobsoft.mobsoftlab.interactor.todo.FavouritesInteractor;
 import hu.bme.aut.mobsoft.mobsoftlab.interactor.todo.LoginInteractor;
 import hu.bme.aut.mobsoft.mobsoftlab.mock.MockNetworkModule;
 import hu.bme.aut.mobsoft.mobsoftlab.network.NetworkModule;
@@ -25,12 +24,13 @@ import hu.bme.aut.mobsoft.mobsoftlab.ui.main.MainPresenter;
 @Component(modules = {UIModule.class, RepositoryModule.class, InteractorModule.class, MockNetworkModule.class})
 public interface MobSoftApplicationComponent {
     void inject(MainActivity mainActivity);
-
+    void inject(CategoriesPresenter presenter);
+    void inject(EventsListPresenter presenter);
+    void inject(EventDetailsPresenter presenter);
     void inject(CategoriesActivity activity);
     void inject(EventsListActivity activity);
     void inject(EventDetailsActivity activity);
 
-    void inject(FavouritesInteractor favouritesInteractor);
 
     void inject(EventsInteractor interactor);
 
@@ -42,7 +42,5 @@ public interface MobSoftApplicationComponent {
 
     void inject(MainPresenter mainPresenter);
 
-    void inject(CategoriesPresenter presenter);
-    void inject(EventsListPresenter presenter);
-    void inject(EventDetailsPresenter presenter);
+
 }
